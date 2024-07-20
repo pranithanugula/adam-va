@@ -12,13 +12,6 @@ def speak(text):
     speaker.say(text)
     speaker.runAndWait()
 
-def take_note():
-    speak("What would you like to note down?")
-    note = take_com()
-    with open("notes.txt", "a") as file:
-        file.write(note + "\n")
-    speak("Note saved.")
-
 va = "adam"
 speak("Hey, how can I help you")
 
@@ -91,16 +84,13 @@ while True:
                 query = command.replace(phrase, '').strip()
         pw.info(query, lines = 5)
 
-    elif 'open notepad' in command or 'notepad':
+    elif 'open notepad' in command:
         os.system('notepad')
         speak("Opening Notepad")
 
-    elif 'open calculator' in command or 'calculator' in command:
+    elif 'open calculator' in command:
         os.system('calc')
         speak("Opening Calculator")
-    
-    elif 'note' in command or 'take a note' in command:
-        take_note()
 
     elif any(phrase in command for phrase in ['shutdown', 'shut down']):
         print("Are you sure you want to shutdown? Please say yes or no.")
